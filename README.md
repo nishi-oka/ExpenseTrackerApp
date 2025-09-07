@@ -33,3 +33,19 @@ C#: 家計簿アプリ（個人開発用）
 ```bash
 dotnet build
 dotnet run
+
+#### アプリは以下で確認できます:
+http://localhost:5138
+
+## 📂 ディレクトリ構成（予定）
+ExpenseTrackerApp/
+├── Controllers/
+├── Models/
+├── Views/
+├── appsettings.json
+├── appsettings.Development.json  # ignore 推奨
+├── Program.cs
+└── README.md
+
+##　License
+MIT License
