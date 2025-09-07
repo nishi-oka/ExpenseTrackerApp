@@ -1,0 +1,26 @@
+//ビュー（一覧表示）
+@model List<ExpenseTracker.Models.Expense>
+
+<h2>支出一覧</h2>
+<table>
+	<thead>
+		<tr>
+			<th>日付</th>
+			<th>カテゴリ</th>
+			<th>金額</th>
+			<th>メモ</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var e in Model)
+		{
+			<tr>
+				<td>@e.Date.ToShortDateString()</td>
+				<td>@e.Category</td>
+				<td>@e.Amount</td>
+				<td>@e.Note</td>
+			</tr>
+		}
+	</tbody>
+</table>
+<a asp-action="Create">新規登録</a>

@@ -1,0 +1,23 @@
+//ビュー（支出登録）
+@model ExpenseTracker.Models.Expense
+
+<h2>支出登録</h2>
+<form asp-action="Create" method="post">
+	<div>
+		<label>日付</label>
+		<input asp-for="Date" type="date" />
+	</div>
+	<div>
+		<label>カテゴリ</label>
+		<input asp-for="Category" />
+	</div>
+	<div>
+		<label>金額</label>
+		<input asp-for="Amount" type="number" />
+	</div>
+	<div>
+		<label>メモ</label>
+		<input asp-for="Note" />
+	</div>
+	<button type="submit">登録</button>
+</form>
