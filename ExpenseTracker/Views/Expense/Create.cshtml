@@ -1,23 +1,82 @@
-//ビュー（支出登録）
-@model ExpenseTracker.Models.Expense
+@* ビュー（支出登録） *@
 
-<h2>支出登録</h2>
-<form asp-action="Create" method="post">
-	<div>
-		<label>日付</label>
-		<input asp-for="Date" type="date" />
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model ExpenseTracker.Models.Expense
+@{
+	ViewData["Title"] = "支出登録";
+}
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+	<div class="form-group">
+		<label>登録日</label>
+		<input type="text" value="@Model.RegistrationDate.ToString("yyyy-MM-dd")" readonly class="input-field" />
 	</div>
-	<div>
-		<label>カテゴリ</label>
-		<input asp-for="Category" />
+
+	<div class="form-group">
+		<label>購入日</label>
+		<input type="date" asp-for="PurchaseDate" class="input-field" />
 	</div>
-	<div>
-		<label>金額</label>
-		<input asp-for="Amount" type="number" />
+
+	<div class="form-group">
+		<label>購入金額</label>
+		<div>
+		</div><input type="number" asp-for="Amount" class="input-field" placeholder="金額を入力" />
+		<p>円</p>
+
 	</div>
-	<div>
+
+	<div class="form-group">
+		<label>支出の種類</label>
+		@{
+			// カテゴリとサブカテゴリ（DisplayName, Id）
+			var categories = new List<(string DisplayName, string Id)>
+				{
+				("住宅", "住宅"),
+				("水道", "光熱費"),
+				("電気", "光熱費"),
+				("ガス", "光熱費"),
+				("携帯", "通信費"),
+				("Wifi", "通信費"),
+				("スーパー", "食費"),
+				("外食", "食費"),
+				("消耗品", "日用品"),
+				("衣服", "日用品"),
+				("駐車代", "駐車料"),
+				("修理", "駐車料"),
+				("外出/旅行", "レジャー/教育費"),
+				("教育費", "レジャー/教育費"),
+				("嗜好品", "趣味/交際費"),
+				("趣味", "趣味/交際費"),
+				("美容", "趣味/交際費"),
+				("交際費", "趣味/交際費"),
+				("保険", "保険/医療費"),
+				("医療費", "保険/医療費"),
+				("NISA", "投資"),
+				("その他", "投資")
+				};
+
+		}
+
+		<select asp-for="Category" class="input-field">
+			<option value="">選択してください</option>
+			@foreach (var cat in categories)
+			{
+				<option value="@cat.Id">@cat.DisplayName</option>
+			}
+		</select>
+
+
+	</div>
+
+	<div class="form-group">
 		<label>メモ</label>
-		<input asp-for="Note" />
+		<textarea asp-for="Note" class="input-field" placeholder="メモを入力"></textarea>
 	</div>
-	<button type="submit">登録</button>
+
+	<button type="submit">登録する</button>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta3/js/bootstrap-select.min.js"></script>
 </form>

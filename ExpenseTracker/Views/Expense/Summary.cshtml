@@ -1,0 +1,34 @@
+@model ExpenseTracker.Models.SummaryViewModel
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+	ViewData["Title"] = "月間サマリー";
+}
+<h2>@ViewData["Title"]</h2>
+<p>@Model.SelectedYear 年 @Model.SelectedMonth 月</p>
+
+<div>
+	<strong>合計支出:</strong> ¥@Model.TotalExpenses
+	<br />
+	<strong>合計収入:</strong> ¥@Model.TotalIncome
+	<br />
+	<strong>貯蓄目標:</strong> ¥@Model.SavingsGoal
+	<br />
+	<strong>達成率:</strong> @Model.AchievementRate.ToString("F1")%
+</div>
+
+<h3>カテゴリ別支出</h3>
+<table>
+	<tr>
+		<th>カテゴリ</th>
+		<th>支出</th>
+	</tr>
+	@foreach (var cat in Model.Categories)
+	{
+		<tr>
+			<td>@cat</td>
+			<td>¥@Model.CategoryTotals[cat]</td>
+		</tr>
+	}
+</table>

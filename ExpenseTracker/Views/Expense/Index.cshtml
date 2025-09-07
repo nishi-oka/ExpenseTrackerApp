@@ -1,11 +1,17 @@
-//ビュー（一覧表示）
+@* ビュー（一覧表示） *@
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @model List<ExpenseTracker.Models.Expense>
+@{
+	ViewData["Title"] = "支出一覧";
+}
 
-<h2>支出一覧</h2>
-<table>
+<h2>@ViewData["Title"]</h2>
+<table class="table-centered">
 	<thead>
 		<tr>
-			<th>日付</th>
+			<th class="date-column">日付</th>
 			<th>カテゴリ</th>
 			<th>金額</th>
 			<th>メモ</th>
@@ -15,7 +21,7 @@
 		@foreach (var e in Model)
 		{
 			<tr>
-				<td>@e.Date.ToShortDateString()</td>
+				<td>@e.PurchaseDate.ToShortDateString()</td>
 				<td>@e.Category</td>
 				<td>@e.Amount</td>
 				<td>@e.Note</td>
@@ -23,4 +29,3 @@
 		}
 	</tbody>
 </table>
-<a asp-action="Create">新規登録</a>

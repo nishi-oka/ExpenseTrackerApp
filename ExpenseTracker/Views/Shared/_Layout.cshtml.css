@@ -46,3 +46,34 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+.bottom-tabs {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    padding: 8px 0;
+    box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.bottom-tabs .tab {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.bottom-tabs .tab.active {
+    color: #1A73E8;
+}
+
+
+
+
+
+
+

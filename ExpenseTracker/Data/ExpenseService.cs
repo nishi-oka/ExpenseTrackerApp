@@ -1,4 +1,5 @@
-//データ保存（最初はJSONファイル）using System.Collections.Generic;
+// データ保存（最初はJSONファイル）
+using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using ExpenseTracker.Models;
@@ -20,6 +21,13 @@ namespace ExpenseTracker.Data
 		{
 			var json = JsonSerializer.Serialize(expenses);
 			File.WriteAllText(_filePath, json);
+		}
+
+		public void Add(Expense expense)
+		{
+			var expenses = GetAll();
+			expenses.Add(expense);
+			File.WriteAllText(_filePath, JsonSerializer.Serialize(expenses, new JsonSerializerOptions { WriteIndented = true }));
 		}
 	}
 }
