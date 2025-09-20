@@ -1,8 +1,9 @@
 @* ビュー（支出登録） *@
 
 @{
-	Layout = "~/Views/Shared/_Layout.cshtml";
+	Layout = "~/Views/Shared/_NoHeaderLayout.cshtml";
 }
+
 @model ExpenseTracker.Models.Expense
 @{
 	ViewData["Title"] = "支出登録";
@@ -55,7 +56,7 @@
 				("保険", "保険/医療費"),
 				("医療費", "保険/医療費"),
 				("NISA", "投資"),
-				("その他", "投資")
+				("その他投資", "投資")
 				};
 
 		}
