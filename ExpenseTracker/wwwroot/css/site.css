@@ -30,6 +30,14 @@ body {
   margin-bottom: 60px;
     padding: 0;
 }
+form {
+    width: 100%;
+    max-width: 500px; /* 任意でフォーム幅を制限 */
+    text-align: left;  /* label の左寄せ */
+    align-items: stretch; /* flex の中央寄せを解除 */
+    margin: 0 auto; /* 画面中央にフォーム全体を置く */
+}
+
 
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -78,5 +86,20 @@ table th.date-column,
 table td.date-column {
     width: 120px;  /* yyyy/mm/ddにちょうど収まる幅に調整 */
     white-space: nowrap; /* 改行を防ぐ */
+}
+
+.submit-button {
+    background-color:  #4CAF50;   /* 背景色 */
+    color: white;              /* 文字色 */
+    width: 100%;               /* 入力欄と同じ幅に広げる */
+    padding: 10px;             /* 内側の余白 */
+    border: none;              /* デフォルトの枠を消す */
+    border-radius: 8px;        /* 角を丸める */
+    font-size: 16px;           /* 少し大きめの文字 */
+    cursor: pointer;           /* ホバー時にポインター */
+}
+
+.submit-button:hover {
+    background-color: #45a049; /* ホバー時に濃い緑 */
 }
 
